@@ -1,0 +1,15 @@
+C:\Users\fato\Desktop\Yazılım\C#\BasicCSharpProjects\BasicCSharpProjects\bin\Debug\net6.0\BasicCSharpProjects.exe
+C:\Users\fato\Desktop\Yazılım\C#\BasicCSharpProjects\BasicCSharpProjects\bin\Debug\net6.0\BasicCSharpProjects.deps.json
+C:\Users\fato\Desktop\Yazılım\C#\BasicCSharpProjects\BasicCSharpProjects\bin\Debug\net6.0\BasicCSharpProjects.runtimeconfig.json
+C:\Users\fato\Desktop\Yazılım\C#\BasicCSharpProjects\BasicCSharpProjects\bin\Debug\net6.0\BasicCSharpProjects.dll
+C:\Users\fato\Desktop\Yazılım\C#\BasicCSharpProjects\BasicCSharpProjects\bin\Debug\net6.0\BasicCSharpProjects.pdb
+C:\Users\fato\Desktop\Yazılım\C#\BasicCSharpProjects\BasicCSharpProjects\obj\Debug\net6.0\BasicCSharpProjects.csproj.AssemblyReference.cache
+C:\Users\fato\Desktop\Yazılım\C#\BasicCSharpProjects\BasicCSharpProjects\obj\Debug\net6.0\BasicCSharpProjects.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\fato\Desktop\Yazılım\C#\BasicCSharpProjects\BasicCSharpProjects\obj\Debug\net6.0\BasicCSharpProjects.AssemblyInfoInputs.cache
+C:\Users\fato\Desktop\Yazılım\C#\BasicCSharpProjects\BasicCSharpProjects\obj\Debug\net6.0\BasicCSharpProjects.AssemblyInfo.cs
+C:\Users\fato\Desktop\Yazılım\C#\BasicCSharpProjects\BasicCSharpProjects\obj\Debug\net6.0\BasicCSharpProjects.csproj.CoreCompileInputs.cache
+C:\Users\fato\Desktop\Yazılım\C#\BasicCSharpProjects\BasicCSharpProjects\obj\Debug\net6.0\BasicCSharpProjects.dll
+C:\Users\fato\Desktop\Yazılım\C#\BasicCSharpProjects\BasicCSharpProjects\obj\Debug\net6.0\refint\BasicCSharpProjects.dll
+C:\Users\fato\Desktop\Yazılım\C#\BasicCSharpProjects\BasicCSharpProjects\obj\Debug\net6.0\BasicCSharpProjects.pdb
+C:\Users\fato\Desktop\Yazılım\C#\BasicCSharpProjects\BasicCSharpProjects\obj\Debug\net6.0\BasicCSharpProjects.genruntimeconfig.cache
+C:\Users\fato\Desktop\Yazılım\C#\BasicCSharpProjects\BasicCSharpProjects\obj\Debug\net6.0\ref\BasicCSharpProjects.dll
