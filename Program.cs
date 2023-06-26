@@ -19,21 +19,34 @@ internal class Program
         //integerDual.IntegerDualFunction();
 
         //AbsoluteSquare absoluteSquare = new AbsoluteSquare();
-        SwapFirstAndLastCharacter swapFirstAndLastCharacter = new SwapFirstAndLastCharacter();
 
-        Console.WriteLine("İki kelime girin:");
+
+        //SwapFirstAndLastCharacter swapFirstAndLastCharacter = new SwapFirstAndLastCharacter();
+
+        //Console.WriteLine("İki kelime girin:");
+        //string input = Console.ReadLine();
+
+        //string[] words = input.Split(' ');
+
+        //string output = "";
+        //foreach (string word in words)
+        //{
+        //    string swappedWord = SwapFirstAndLastCharacter.SwapFirstAndLastCharacterFunction(word);
+        //    output += swappedWord + " ";
+        //}
+
+        //Console.WriteLine("Sonuç: " + output.Trim());
+
+        Consanants consanants = new Consanants();
+        Console.WriteLine("Bir string ifade girin:");
         string input = Console.ReadLine();
 
-        string[] words = input.Split(' ');
-
-        string output = "";
-        foreach (string word in words)
+        bool[] results = consanants.CheckConsecutiveConsonants(input);
+        Console.WriteLine("Sonuç:");
+        foreach (bool result in results)
         {
-            string swappedWord = SwapFirstAndLastCharacter.SwapFirstAndLastCharacterFunction(word);
-            output += swappedWord + " ";
+            Console.Write(result + " ");
         }
-
-        Console.WriteLine("Sonuç: " + output.Trim());
     }
 }
 public class AverageFibonacci
@@ -358,5 +371,38 @@ public class SwapFirstAndLastCharacter
         charArray[input.Length - 1] = firstChar;
 
         return new string(charArray);
+    }
+}
+public class Consanants
+{
+    public  bool[] CheckConsecutiveConsonants(string input)
+    {
+        string[] words = input.Split(' ');
+        bool[] results = new bool[words.Length];
+
+        for (int i = 0; i < words.Length; i++)
+        {
+            results[i] = CheckConsecutiveConsonantsInWord(words[i]);
+        }
+
+        return results;
+    }
+    public static bool CheckConsecutiveConsonantsInWord(string word)
+    {
+        bool hasConsecutiveConsonants = false;
+        for (int i = 0; i < word.Length - 1; i++)
+        {
+            if (IsConsonant(word[i]) && IsConsonant(word[i + 1]))
+            {
+                hasConsecutiveConsonants = true;
+                break;
+            }
+        }
+        return hasConsecutiveConsonants;
+    }
+    public static bool IsConsonant(char c)
+    {
+        char[] consonants = { 'b', 'c', 'ç', 'd', 'f', 'g', 'ğ', 'h', 'j', 'k', 'l', 'm', 'n', 'p', 'r', 's', 'ş', 't', 'v', 'y', 'z' };
+        return Array.IndexOf(consonants, char.ToLower(c)) >= 0;
     }
 }
