@@ -18,7 +18,22 @@ internal class Program
         //IntegerDual integerDual = new IntegerDual();
         //integerDual.IntegerDualFunction();
 
-        AbsoluteSquare absoluteSquare = new AbsoluteSquare();
+        //AbsoluteSquare absoluteSquare = new AbsoluteSquare();
+        SwapFirstAndLastCharacter swapFirstAndLastCharacter = new SwapFirstAndLastCharacter();
+
+        Console.WriteLine("İki kelime girin:");
+        string input = Console.ReadLine();
+
+        string[] words = input.Split(' ');
+
+        string output = "";
+        foreach (string word in words)
+        {
+            string swappedWord = SwapFirstAndLastCharacter.SwapFirstAndLastCharacterFunction(word);
+            output += swappedWord + " ";
+        }
+
+        Console.WriteLine("Sonuç: " + output.Trim());
     }
 }
 public class AverageFibonacci
@@ -326,4 +341,22 @@ public class AbsoluteSquare
 
     }
 
+}
+public class SwapFirstAndLastCharacter
+{
+    public static string SwapFirstAndLastCharacterFunction(string input)
+    {
+        if (string.IsNullOrEmpty(input) || input.Length == 1)
+        {
+            return input;
+        }
+
+        char[] charArray = input.ToCharArray();
+
+        char firstChar = charArray[0];
+        charArray[0] = charArray[input.Length - 1];
+        charArray[input.Length - 1] = firstChar;
+
+        return new string(charArray);
+    }
 }
