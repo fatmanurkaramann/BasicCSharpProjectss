@@ -15,8 +15,10 @@ internal class Program
 
         //Area area = new Area();
 
-        IntegerDual integerDual = new IntegerDual();
-        integerDual.IntegerDualFunction();
+        //IntegerDual integerDual = new IntegerDual();
+        //integerDual.IntegerDualFunction();
+
+        AbsoluteSquare absoluteSquare = new AbsoluteSquare();
     }
 }
 public class AverageFibonacci
@@ -277,13 +279,11 @@ public class IntegerDual
             {
                 int pairSum = a + b;
                 Console.Write(pairSum + " ");
-                sum += pairSum;
             }
             else
             {
                 int pairSquareSum = (a + b) * (a + b);
                 Console.Write(pairSquareSum + " ");
-                sum += pairSquareSum;
             }
             
 
@@ -291,4 +291,39 @@ public class IntegerDual
         }
 
     }
+}
+public class AbsoluteSquare
+{
+    public AbsoluteSquare()
+    {
+        Console.WriteLine("Kaç tane sayı girmek istersiniz");
+        int n = int.Parse(Console.ReadLine());
+        int sumSmall = 0;
+        int sumLarge = 0;
+
+        for (int i = 0; i < n; i++)
+        {
+            Console.WriteLine("sayıyı gir");
+            int a = int.Parse(Console.ReadLine());
+
+            if (a<67)
+            {
+                int fark = 67 - a;
+
+                sumSmall += fark;
+                Console.WriteLine("67den küçük sayılar için "+sumSmall);
+
+            }
+            else if(a>67)
+            {
+                sumLarge += Math.Abs(67 - a) * Math.Abs(67 - a);
+                Console.WriteLine("67den büyük sayılar için "+sumLarge);
+
+            }
+
+
+        }
+
+    }
+
 }
