@@ -11,7 +11,12 @@ internal class Program
 
         //Circle circle = new Circle();   
         //Algorithm algorithm = new Algorithm();
-        ChangeLocation changeLocation = new();
+        //ChangeLocation changeLocation = new();
+
+        //Area area = new Area();
+
+        IntegerDual integerDual = new IntegerDual();
+        integerDual.IntegerDualFunction();
     }
 }
 public class AverageFibonacci
@@ -155,5 +160,135 @@ public class ChangeLocation
         }
 
         return new string(karakterler);
+    }
+}
+public class Area
+{
+    public Area()
+    {
+      
+
+        while (true)
+        {
+            Console.WriteLine("İşlem yapmak istediğiniz geometrik şekil nedir?");
+            Console.WriteLine("1. Kare");
+            Console.WriteLine("2. Dikdörtgen");
+            Console.WriteLine("3. Üçgen");
+            Console.WriteLine("3. Daire");
+
+
+            int choice = int.Parse(Console.ReadLine());
+            Console.WriteLine("Ne hesaplamak istersiniz?");
+            Console.WriteLine("1. Alan");
+            Console.WriteLine("2. Çevre");
+            int choice2 = int.Parse(Console.ReadLine());
+            switch (choice)
+            {
+
+                case 1:
+                    while (true)
+                    {
+                        
+
+                        switch (choice2)
+                        {
+                            case 1:
+                                CalculateAreaSquare();
+                                break;
+                                case 2:
+                                calculatePerimeterSquare();
+                                break;
+                        }
+                    }
+                break;
+
+                case 2:
+                    while (true)
+                    {
+                        switch (choice2)
+                        {
+                            case 1:
+                                CalculateAreaRectangle();
+                                break;
+                            case 2:
+                                calculatePerimeterRectangle();
+                                break;
+                        }
+                    }
+                    break;
+
+            }
+        }
+    }
+
+    public void CalculateAreaSquare()
+    {
+        Console.WriteLine(" Kenar girin");
+        int uzunKenar = int.Parse(Console.ReadLine());
+
+        int area = uzunKenar * uzunKenar;
+        Console.WriteLine(area);
+    }
+    public void calculatePerimeterSquare()
+    {
+        Console.WriteLine("Kenar girin");
+        int kenar = int.Parse(Console.ReadLine());
+
+        int perimeter = 4*kenar;
+        Console.WriteLine(perimeter);
+    }
+    public void CalculateAreaRectangle()
+    {
+        Console.WriteLine("Uzun Kenar girin");
+        int uzunKenar = int.Parse(Console.ReadLine());
+        Console.WriteLine("Kısa Kenar girin");
+        int kisaKenar = int.Parse(Console.ReadLine());
+
+        int area = uzunKenar * kisaKenar;
+        Console.WriteLine(area);
+    }
+    public void calculatePerimeterRectangle()
+    {
+        Console.WriteLine("Uzun Kenar girin");
+        int uzunKenar = int.Parse(Console.ReadLine());
+        Console.WriteLine("Kısa Kenar girin");
+        int kisaKenar = int.Parse(Console.ReadLine());
+
+        int perimeter = (2 * uzunKenar) + (2 * kisaKenar);
+        Console.WriteLine(perimeter);
+    }
+}
+public class IntegerDual
+{
+    public void IntegerDualFunction()
+    {
+        Console.WriteLine("Kaç tane ikili sayı girmek istersiniz");
+        int n =int.Parse( Console.ReadLine());
+        int sum = 0;
+        for (int i = 0; i < n; i++)
+        {
+            Console.WriteLine("1. sayıyı gir");
+            int a= int.Parse(Console.ReadLine());
+
+            Console.WriteLine("2. sayıyı gir");
+            int b = int.Parse(Console.ReadLine());
+
+            if(a != b)
+            {
+                int pairSum = a + b;
+                Console.Write(pairSum + " ");
+                sum += pairSum;
+            }
+            else
+            {
+                int pairSquareSum = (a + b) * (a + b);
+                Console.Write(pairSquareSum + " ");
+                sum += pairSquareSum;
+            }
+            
+
+
+        }
+
     }
 }
