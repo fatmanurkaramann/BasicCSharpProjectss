@@ -1,8 +1,9 @@
-﻿using static System.Net.Mime.MediaTypeNames;
+﻿using System.Security.Cryptography.X509Certificates;
+using static System.Net.Mime.MediaTypeNames;
 
 internal class Program
 {
-    public  static void Main(string[] args)
+    public static void Main(string[] args)
     {
         //AverageFibonacci fibonaccis = new AverageFibonacci();
         //fibonaccis.FibonacciNumber();
@@ -13,7 +14,7 @@ internal class Program
         //Algorithm algorithm = new Algorithm();
         //ChangeLocation changeLocation = new();
 
-        //Area area = new Area();
+        Area area = new Area();
 
         //IntegerDual integerDual = new IntegerDual();
         //integerDual.IntegerDualFunction();
@@ -37,21 +38,21 @@ internal class Program
 
         //Console.WriteLine("Sonuç: " + output.Trim());
 
-        Consanants consanants = new Consanants();
-        Console.WriteLine("Bir string ifade girin:");
-        string input = Console.ReadLine();
+        //Consanants consanants = new Consanants();
+        //Console.WriteLine("Bir string ifade girin:");
+        //string input = Console.ReadLine();
 
-        bool[] results = consanants.CheckConsecutiveConsonants(input);
-        Console.WriteLine("Sonuç:");
-        foreach (bool result in results)
-        {
-            Console.Write(result + " ");
-        }
+        //bool[] results = consanants.CheckConsecutiveConsonants(input);
+        //Console.WriteLine("Sonuç:");
+        //foreach (bool result in results)
+        //{
+        //    Console.Write(result + " ");
+        //}
     }
 }
 public class AverageFibonacci
 {
-    public  void FibonacciNumber()
+    public void FibonacciNumber()
     {
         Console.Write("Fibonacci serisinin kaç terimini yazdırmak istersiniz? ");
         int sayi = int.Parse(Console.ReadLine());
@@ -64,8 +65,8 @@ public class AverageFibonacci
             total += fibonacciTerimi;
         }
 
-        double average =(double)total / sayi;
-        Console.WriteLine("ortalama: "+average);
+        double average = (double)total / sayi;
+        Console.WriteLine("ortalama: " + average);
     }
     public int Fibonacci(int n)
     {
@@ -73,7 +74,7 @@ public class AverageFibonacci
         {
             return 0;
         }
-        else if(n== 1)
+        else if (n == 1)
         {
             return 1;
         }
@@ -196,7 +197,7 @@ public class Area
 {
     public Area()
     {
-      
+
 
         while (true)
         {
@@ -212,98 +213,110 @@ public class Area
             Console.WriteLine("1. Alan");
             Console.WriteLine("2. Çevre");
             int choice2 = int.Parse(Console.ReadLine());
+            Kare kare = new Kare();
+            Dikdörtgen dikdortgen = new Dikdörtgen();
             switch (choice)
             {
 
                 case 1:
-                    while (true)
+                    switch (choice2)
                     {
-                        
 
-                        switch (choice2)
-                        {
-                            case 1:
-                                CalculateAreaSquare();
-                                break;
-                                case 2:
-                                calculatePerimeterSquare();
-                                break;
-                        }
+                        case 1:
+                            kare.AlanHesapla();
+                            break;
+                        case 2:
+                            kare.CevreHesapla();
+                            break;
                     }
-                break;
+                    break;
 
                 case 2:
-                    while (true)
+
+                    switch (choice2)
                     {
-                        switch (choice2)
-                        {
-                            case 1:
-                                CalculateAreaRectangle();
-                                break;
-                            case 2:
-                                calculatePerimeterRectangle();
-                                break;
-                        }
+                        case 1:
+                            dikdortgen.AlanHesapla();
+                            break;
+                        case 2:
+                            dikdortgen.CevreHesapla();
+                            break;
                     }
                     break;
 
             }
         }
     }
-
-    public void CalculateAreaSquare()
+    public class BaseClass
     {
-        Console.WriteLine(" Kenar girin");
-        int uzunKenar = int.Parse(Console.ReadLine());
+        public virtual void AlanHesapla()
+        {
+            Console.WriteLine("Kenar giriniz");
 
-        int area = uzunKenar * uzunKenar;
-        Console.WriteLine(area);
+        }
+        public virtual void CevreHesapla()
+        {
+            Console.WriteLine("Kenar giriniz");
+        }
     }
-    public void calculatePerimeterSquare()
+
+    public class Kare : BaseClass
     {
-        Console.WriteLine("Kenar girin");
-        int kenar = int.Parse(Console.ReadLine());
-
-        int perimeter = 4*kenar;
-        Console.WriteLine(perimeter);
+        public override void AlanHesapla()
+        {
+            base.AlanHesapla();
+            int uzunKenar = int.Parse(Console.ReadLine());
+            int alan = uzunKenar * uzunKenar;
+            Console.WriteLine("Kare Alanı : " + alan);
+        }
+        public override void CevreHesapla()
+        {
+            base.CevreHesapla();
+            int kenar = int.Parse(Console.ReadLine());
+            int cevre = kenar * 4;
+            Console.WriteLine("Karenin Çevresi : " + cevre);
+        }
     }
-    public void CalculateAreaRectangle()
+  public class Dikdörtgen : BaseClass
     {
-        Console.WriteLine("Uzun Kenar girin");
-        int uzunKenar = int.Parse(Console.ReadLine());
-        Console.WriteLine("Kısa Kenar girin");
-        int kisaKenar = int.Parse(Console.ReadLine());
+        public override void AlanHesapla()
+        {
+            base.AlanHesapla();
+            int uzunKenar = int.Parse(Console.ReadLine());
+            Console.WriteLine("2. Kenar girin");
+            int kisaKenar = int.Parse(Console.ReadLine());
+            int area = uzunKenar * kisaKenar;
+            Console.WriteLine(area);
+        }
+        public override void CevreHesapla()
+        {
+            base.AlanHesapla();
+            int uzunKenar = int.Parse(Console.ReadLine());
+            Console.WriteLine("2. Kenar girin");
+            int kisaKenar = int.Parse(Console.ReadLine());
+            int cevre = (2 * uzunKenar) + (2 * kisaKenar);
+            Console.WriteLine("Dikdörtgenin çevresi : "+cevre);
+        }
 
-        int area = uzunKenar * kisaKenar;
-        Console.WriteLine(area);
     }
-    public void calculatePerimeterRectangle()
-    {
-        Console.WriteLine("Uzun Kenar girin");
-        int uzunKenar = int.Parse(Console.ReadLine());
-        Console.WriteLine("Kısa Kenar girin");
-        int kisaKenar = int.Parse(Console.ReadLine());
-
-        int perimeter = (2 * uzunKenar) + (2 * kisaKenar);
-        Console.WriteLine(perimeter);
-    }
+  
 }
 public class IntegerDual
 {
     public void IntegerDualFunction()
     {
         Console.WriteLine("Kaç tane ikili sayı girmek istersiniz");
-        int n =int.Parse( Console.ReadLine());
+        int n = int.Parse(Console.ReadLine());
         int sum = 0;
         for (int i = 0; i < n; i++)
         {
             Console.WriteLine("1. sayıyı gir");
-            int a= int.Parse(Console.ReadLine());
+            int a = int.Parse(Console.ReadLine());
 
             Console.WriteLine("2. sayıyı gir");
             int b = int.Parse(Console.ReadLine());
 
-            if(a != b)
+            if (a != b)
             {
                 int pairSum = a + b;
                 Console.Write(pairSum + " ");
@@ -313,7 +326,7 @@ public class IntegerDual
                 int pairSquareSum = (a + b) * (a + b);
                 Console.Write(pairSquareSum + " ");
             }
-            
+
 
 
         }
@@ -334,18 +347,18 @@ public class AbsoluteSquare
             Console.WriteLine("sayıyı gir");
             int a = int.Parse(Console.ReadLine());
 
-            if (a<67)
+            if (a < 67)
             {
                 int fark = 67 - a;
 
                 sumSmall += fark;
-                Console.WriteLine("67den küçük sayılar için "+sumSmall);
+                Console.WriteLine("67den küçük sayılar için " + sumSmall);
 
             }
-            else if(a>67)
+            else if (a > 67)
             {
                 sumLarge += Math.Abs(67 - a) * Math.Abs(67 - a);
-                Console.WriteLine("67den büyük sayılar için "+sumLarge);
+                Console.WriteLine("67den büyük sayılar için " + sumLarge);
 
             }
 
@@ -375,7 +388,7 @@ public class SwapFirstAndLastCharacter
 }
 public class Consanants
 {
-    public  bool[] CheckConsecutiveConsonants(string input)
+    public bool[] CheckConsecutiveConsonants(string input)
     {
         string[] words = input.Split(' ');
         bool[] results = new bool[words.Length];
